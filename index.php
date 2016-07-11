@@ -1,63 +1,31 @@
+
+
+
 <?php
+$code = $_GET['code'];
+$img = [
+    '1 Фото' => '/img/1.jpg',
+    '2 Фото' => '/img/2.jpg',
+    '3 Фото' => '/img/3.jpg',
+    '4 Фото'=> '/img/4.jpg',
+    '5 Фото' => '/img/5.jpg',
+    
+];
 
-$x = $_POST['x'];
+// echo $img[$code];
 
-$act = $_POST['act'];
+foreach ($img as $k =>  $item) {
 
-$y = $_POST['y'];
-
-// $res = $x + $y;
-if ($act == '/' && 0 == $y) {
-
-    echo 'Деление на 0 не возможно';
-} else
-    switch ($act) {
-
-    case  '+':
-         $res = $x + $y;
-        break;
-
-    case  '-':
-         $res = $x - $y;
-        break;
-
-    case  '*':
-         $res = $x * $y;
-        break;
-
-    case  '/':
-         $res = $x / $y;
-        break;
+echo '<a href = ' . $item . '>' . $k .'</a>';
+    echo '<br />';
 }
-
 
 ?>
 
 
-<form action="/index.php" method="post">
-<input type="text" name="x" >
- <select name="act">
 
-     <option>+</option>
-     <option>-</option>
-     <option>/</option>
-     <option>:</option>
+<a href="/img/1.jpg" target="_blank">Link 1</a>
 
-
- </select>
-    <input type="text" name="y" value="<?php $_POST['y'] ?>">
-    <input type="submit" value="=">
-
-<?php
-echo '<br />';
-echo $_POST['x'] . $_POST['act'] . $_POST['y'] . '=' . $res; ?>
-
-
-</form>
-
-
-<a href="http://profitphp1/index.php?code=jan">Link</a>
-<a href="http://profitphp1/index.php?code=feb">Link</a>
 
 
 
