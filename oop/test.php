@@ -10,23 +10,46 @@
 
 <?php
 
-class SomeClass
+class GuestBookRecord
 {
+    protected $message;
 
+    public function __construct($message)
+    {
+        $this->message = $message;
+    }
 }
 
-class AnotherClass extends SomeClass
+class GuestBook
 {
+    protected $file;
+    public function __construct($file)
+    {
+        $this->file = $file;
 
+
+    }
+
+    public function getAll() {
+
+
+
+            $data = file($this->file);
+            $ret[] = [];
+            foreach ($data as $line) {
+                $ret[] = new GuestBookRecord($line);
+
+
+            }
+
+            return $ret;
+
+    }
 }
 
-$obj = new SomeClass();
+        $gb = new GuestBook(__DIR__ . '/user.txt', FILE_IGNORE_NEW_LINES);
 
-var_dump(
-  $obj instanceof  stdClass
-);
-
-
+var_dump($gb->getAll());
 
 
 ?>
