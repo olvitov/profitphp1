@@ -18,7 +18,7 @@ article {
 
 <h3>Текст записи</h3>
 
-<?php foreach ($data as $line) : ?>
+<?php foreach ($book as $line) : ?>
 <article><?php echo $line->getMessage(); ?></article>
 
 
