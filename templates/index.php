@@ -18,8 +18,14 @@ article {
 
 <h3>Текст записи</h3>
 
-<?php foreach ($book as $line) : ?>
-<article><?php echo $line->getMessage(); ?></article>
+<?php foreach ($persons as $person) : ?>
+<ul>
+    <li><?php echo $person['lastName']; ?></li>
+    <li><?php echo $person['firstName']; ?></li>
+
+
+
+</ul>
 
 
 <?php endforeach; ?>
