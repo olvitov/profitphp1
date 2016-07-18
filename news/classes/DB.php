@@ -11,7 +11,14 @@ class DB
   protected $dbh;
     public function __construct()
     {
-        $this->dbh = new PDO('mysql:dbname=test;host=localhost', 'root', '');
+        $config = include (__DIR__ . '/../config.php');
+        $dsn = 'mysql:host=' .$config['host'] . ';dbname=' . $config['dbname'];
+        $this->dbh = new PDO(
+            $dsn,
+            $config['user'],
+            $config['password']
+
+        );
     }
 
 
